@@ -296,3 +296,53 @@ gestion des secrets ;
 approbation d'une demande d'accès.
 
 Ces fonctionnalités ne font pas partie du modèle initial et seront ajoutées lorsque leur besoin sera clairement défini. 
+
+Tables:
+
+User:
+- id  entier
+- username  texte
+- password_hash  texte
+- is_active. booleen
+- created_at. date/heure
+
+
+Server:
+- id entier
+- name texte
+- ip_address texte
+- ssh_port. entier
+- ssh_username texte
+- is_active. booleen
+- created_at. date/heure
+
+
+User_groups:
+- id. entier
+- name  texte
+- description. texte
+- created_at. date/heure
+
+
+Server_groups:
+- id  entier
+- name texte
+- description texte
+- created_at. date/heure
+
+
+Access_sets:
+- id. entier
+- name texte
+- user_group_id entier
+- server_group_id entier
+- created_at date/heure
+
+user_group_members:
+- user_id entier
+- user_group_id entier
+
+
+server_group_members:
+- server_id entier 
+- server_group_id entier
