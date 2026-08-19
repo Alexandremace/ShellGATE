@@ -300,49 +300,52 @@ Ces fonctionnalités ne font pas partie du modèle initial et seront ajoutées l
 Tables:
 
 User:
-- id  entier
-- username  texte
-- password_hash  texte
-- is_active. booleen
-- created_at. date/heure
+- id → entier → PRIMARY KEY
+- username → texte → NOT NULL + UNIQUE
+- password_hash → texte → NOT NULL
+- is_active → booléen → NOT NULL
+- created_at → date/heure → NOT NULL
 
 
 Server:
-- id entier
-- name texte
-- ip_address texte
-- ssh_port. entier
-- ssh_username texte
-- is_active. booleen
-- created_at. date/heure
+- id → entier → PRIMARY KEY
+- name → texte → NOT NULL
+- ip_address → texte → NOT NULL + UNIQUE
+- ssh_port → entier → NOT NULL
+- ssh_username → texte → NOT NULL
+- is_active → booléen → NOT NULL
+- created_at → date/heure → NOT NULL
 
 
 User_groups:
-- id. entier
-- name  texte
-- description. texte
-- created_at. date/heure
+- id → entier → PRIMARY KEY
+- name → texte → NOT NULL + UNIQUE
+- description → texte → NOT NULL
+- created_at → date/heure → NOT NULL
 
 
 Server_groups:
-- id  entier
-- name texte
-- description texte
-- created_at. date/heure
+- id → entier → PRIMARY KEY
+- name → texte → NOT NULL + UNIQUE
+- description → texte → NOT NULL
+- created_at → date/heure → NOT NULL
 
 
 Access_sets:
-- id. entier
-- name texte
-- user_group_id entier
-- server_group_id entier
-- created_at date/heure
+- id → entier → PRIMARY KEY
+- name → texte → NOT NULL + UNIQUE
+- user_group_id → entier → NOT NULL + FOREIGN KEY
+- server_group_id → entier → NOT NULL + FOREIGN KEY
+- created_at → date/heure → NOT NULL
+
 
 user_group_members:
-- user_id entier
-- user_group_id entier
+- user_id → entier → FOREIGN KEY
+- user_group_id → entier → FOREIGN KEY
+- PRIMARY KEY (user_id, user_group_id)
 
 
 server_group_members:
-- server_id entier 
-- server_group_id entier
+- server_id → entier → FOREIGN KEY
+- server_group_id → entier → FOREIGN KEY
+- PRIMARY KEY (server_id, server_group_id)
